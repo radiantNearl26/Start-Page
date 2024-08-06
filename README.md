@@ -16,5 +16,6 @@ Yet another minimal startpage (now with multitheme!):
 ## Preview:
 
 Here's a preview of Fazzi's startpage on Firefox:
-![img](preview.gif)
+> **INFO**: OG screenshot by @fazzi. Need to update the screen-recording.
 
+![img](preview.gif)
