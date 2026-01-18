@@ -19,3 +19,4 @@ Here's a preview of Fazzi's startpage on Firefox:
 > **INFO**: OG screenshot by @fazzi. Need to update the screen-recording.
 
 ![img](preview.gif)
+![img](new-preview.png)
