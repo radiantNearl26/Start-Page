@@ -27,9 +27,9 @@ We use insert coding style guide, e.g. Google Java Style Guide for our code. Kee
 ## Credits
 
 * This project would not be possible without the contributions of:
-	+ John Doe (@johndoe)
-	+ Jane Smith (@janesmith)
-	+ Bob Johnson (@bobjohnson)
+	+ Fazzi (@fxzzi)
+	+ Ignacy Koper (@heavyrain266)
+	+ Asmit Das Choudhury (@radiantNearl26)
 * Please make sure to **update the AUTHORS file** and any relevant documentation to reflect your contributions.
 
 ## License
