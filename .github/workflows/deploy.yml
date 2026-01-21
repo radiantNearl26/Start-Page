@@ -29,8 +29,18 @@ jobs:
           # Copy source assets into asmit directory so they are available
           cp -r src asmit/src
 
-          # Fix relative paths in index.html (remove ../ since asmit will be root)
+          # Create carousel directory and copy cover images
+          mkdir -p asmit/carousel
+          cp src/images/cover* asmit/carousel/
+
+          # Fix paths in index.html
+          # First, point images to the new carousel folder
+          sed -i 's|\.\./src/images|carousel|g' asmit/index.html
+          # Then fix other src references (css, js)
           sed -i 's|\.\./src|src|g' asmit/index.html
+
+          # Fix paths in carousel_bg.js
+          sed -i 's|\.\./src/images/|carousel/|g' asmit/src/js/carousel_bg.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
