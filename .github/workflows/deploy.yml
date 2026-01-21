@@ -1,0 +1,44 @@
+name: Deploy 'asmit' to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare 'asmit' folder for deployment
+        run: |
+          # Copy source assets into asmit directory so they are available
+          cp -r src asmit/src
+
+          # Fix relative paths in index.html (remove ../ since asmit will be root)
+          sed -i 's|\.\./src|src|g' asmit/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./asmit"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
